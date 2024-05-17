@@ -1,0 +1,11 @@
+{
+  "name": "microservices-blogsite",
+  "version": "1.0.0",
+  "description": "monorepo for nestjs and nextjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "muthuri-dev",
+  "license": "MIT"
+}
