@@ -5,13 +5,17 @@ A blogging site built using microservices - nest js monorepo, nextjs-frontend, a
 
 
 
-
+microservices-architecture
 
 
 
 
 
 ![blogsitenew.png](/.eraser/gCSFJbW9Ou4XlkLt5AVX___hJuLF9q4mgcDgmFW7ntHRbaoiOh1___8hFnAe47uLtOykOheW5r0.png "blogsitenew.png")
+
+microservices-architecture
+
+![blogsite.png](/.eraser/gCSFJbW9Ou4XlkLt5AVX___hJuLF9q4mgcDgmFW7ntHRbaoiOh1___dYwlxJHoa8CT_uE1xq_Lw.png "blogsite.png")
 
 
 
