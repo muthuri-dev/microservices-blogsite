@@ -1,13 +1,14 @@
-import { Resolver } from '@nestjs/graphql';
+import { Args, Query, Resolver } from '@nestjs/graphql';
 import { ApiUsersService } from './api-users.service';
-import { ApiUser } from './entities/api-user.entity';
+import { LoginResponse } from './types/user.types';
 
-@Resolver(() => ApiUser)
+@Resolver('User')
 export class ApiUsersResolver {
   constructor(private readonly apiUsersService: ApiUsersService) {}
 
-  // @Mutation(() => ApiUser)
-  // createApiUser(@Args('createApiUserInput') createApiUserInput: CreateApiUserInput) {
-  //   return this.apiUsersService.create(createApiUserInput);
-  // }
+  @Query(() => LoginResponse)
+  async getUserByEmail(@Args('email') email: string): Promise<LoginResponse> {
+    const user = await this.apiUsersService.getUserByEmail(email);
+    return { user };
+  }
 }

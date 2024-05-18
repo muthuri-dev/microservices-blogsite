@@ -1,8 +1,24 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { PrismaService } from '../../../prisma/prisma.service';
+import { ConfigService } from '@nestjs/config';
+import { User } from './entities/user.entity';
 
 @Injectable()
 export class ApiUsersService {
-  // create(createApiUserInput: CreateApiUserInput) {
-  //   return 'This action adds a new apiUser';
-  // }
+  constructor(
+    private readonly prismaService: PrismaService,
+    private readonly configService: ConfigService,
+  ) {}
+
+  async getUserByEmail(email: string): Promise<User> {
+    const user = await this.prismaService.user.findUnique({
+      where: { email },
+    });
+
+    if (!user) {
+      throw new NotFoundException('User with email not found');
+    }
+
+    return user;
+  }
 }
