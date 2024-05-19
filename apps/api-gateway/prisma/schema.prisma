@@ -63,11 +63,15 @@ model User {
 }
 
 model post {
-  id         String    @id @default(cuid())
-  post       String
-  likes      Int
-  user       User      @relation(fields: [user_id], references: [id], onDelete: Cascade)
-  user_id    String
-  created_at DateTime  @default(now())
-  updated_at DateTime? @updatedAt
+  id                String    @id @default(cuid())
+  post              String
+  likes             Int?
+  title             String
+  image             String
+  comments_enabled  Boolean?  @default(true)
+  short_description String
+  user              User      @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  user_id           String
+  created_at        DateTime  @default(now())
+  updated_at        DateTime? @updatedAt
 }
