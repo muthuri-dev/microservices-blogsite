@@ -36,4 +36,8 @@ export class ApiPostsService {
     });
     return createdPost;
   }
+
+  async getUserPosts(id: string) {
+    return await this.prismaService.post.findMany({ where: { user_id: id } });
+  }
 }

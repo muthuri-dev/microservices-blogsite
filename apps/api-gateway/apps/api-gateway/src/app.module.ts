@@ -12,7 +12,10 @@ import { ConfigService } from '@nestjs/config';
       driver: ApolloGatewayDriver,
       gateway: {
         supergraphSdl: new IntrospectAndCompose({
-          subgraphs: [],
+          subgraphs: [
+            { name: 'api-users', url: 'http://localhost:3001/graphql' },
+            { name: 'api-posts', url: 'http://localhost:3002/graphql' },
+          ],
         }),
       },
     }),

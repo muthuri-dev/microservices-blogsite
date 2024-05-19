@@ -21,4 +21,8 @@ export class ApiUsersService {
 
     return user;
   }
+
+  async getUserByid(id: string) {
+    return this.prismaService.user.findUnique({ where: { id } });
+  }
 }

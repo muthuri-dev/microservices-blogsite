@@ -2,7 +2,7 @@ import { Field, ObjectType } from '@nestjs/graphql';
 import { Post } from '../entities/post.entity';
 
 @ObjectType()
-export class ErrorType {
+export class PostErrorType {
   @Field()
   message: string;
 
@@ -15,6 +15,6 @@ export class CreatePostResponse {
   @Field(() => Post)
   post: Post;
 
-  @Field(() => ErrorType, { nullable: true })
-  error?: ErrorType;
+  @Field(() => PostErrorType, { nullable: true })
+  error?: PostErrorType;
 }
