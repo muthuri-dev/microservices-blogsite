@@ -1,15 +1,8 @@
-import {
-  Args,
-  Mutation,
-  Parent,
-  ResolveField,
-  Resolver,
-} from '@nestjs/graphql';
+import { Args, Mutation, Resolver } from '@nestjs/graphql';
 import { ApiPostsService } from './api-posts.service';
 import { PostDto } from './dto/post.dto';
 import { CreatePostResponse } from './types/posts.types';
 import { Post } from './entities/post.entity';
-import { User } from './entities/user.entity';
 
 @Resolver(() => Post)
 export class ApiPostsResolver {
@@ -23,8 +16,11 @@ export class ApiPostsResolver {
     return { post };
   }
 
-  @ResolveField(() => User)
-  async user(@Parent() post: Post): Promise<any> {
-    return await { _typename: 'User', id: post.user_id };
-  }
+  // @ResolveReference()
+  // async resolveReference(reference: {
+  //   _typename: string;
+  //   id: string;
+  // }): Promise<Post[]> {
+  //   return await this.apiPostsService.getById(reference.id);
+  // }
 }

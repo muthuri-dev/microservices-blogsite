@@ -1,10 +1,9 @@
-import { ObjectType, Field, Int, Directive } from '@nestjs/graphql';
-import { User } from './user.entity';
+import { ObjectType, Field, Int, Directive, ID } from '@nestjs/graphql';
 
 @ObjectType()
 @Directive('@key(fields:"id")')
 export class Post {
-  @Field()
+  @Field(() => ID)
   id: string;
 
   @Field()
@@ -30,9 +29,6 @@ export class Post {
 
   @Field()
   updated_at: Date;
-
-  @Field(() => User)
-  user?: User;
 
   @Field()
   user_id: string;

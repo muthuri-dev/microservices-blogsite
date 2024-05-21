@@ -2,6 +2,7 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { PrismaService } from '../../../prisma/prisma.service';
 import { PostDto } from './dto/post.dto';
+import { Post } from './entities/post.entity';
 
 @Injectable()
 export class ApiPostsService {
@@ -37,7 +38,11 @@ export class ApiPostsService {
     return createdPost;
   }
 
-  async getUserPosts(id: string) {
-    return await this.prismaService.post.findMany({ where: { user_id: id } });
+  // async getById(id: string) {
+  //   return await this.prismaService.post.findMany({ where: { id } });
+  // }
+
+  async getUserPosts(user_id: string): Promise<Post[]> {
+    return await this.prismaService.post.findMany({ where: { user_id } });
   }
 }
