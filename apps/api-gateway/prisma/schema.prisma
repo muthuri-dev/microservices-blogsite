@@ -57,12 +57,12 @@ model User {
 
   created_at DateTime  @default(now())
   updated_at DateTime? @updatedAt
-  post       post[]
+  post       Post[]
 
   @@map("users")
 }
 
-model post {
+model Post {
   id                String    @id @default(cuid())
   post              String
   likes             Int?
@@ -74,4 +74,6 @@ model post {
   user_id           String
   created_at        DateTime  @default(now())
   updated_at        DateTime? @updatedAt
+
+  @@map("posts")
 }

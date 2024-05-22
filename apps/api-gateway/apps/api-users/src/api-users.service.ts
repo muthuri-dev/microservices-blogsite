@@ -21,4 +21,7 @@ export class ApiUsersService {
 
     return user;
   }
+  async getById(id: string): Promise<User> {
+    return await this.prismaService.user.findUnique({ where: { id } });
+  }
 }

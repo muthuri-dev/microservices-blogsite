@@ -38,10 +38,6 @@ export class ApiPostsService {
     return createdPost;
   }
 
-  // async getById(id: string) {
-  //   return await this.prismaService.post.findMany({ where: { id } });
-  // }
-
   async getUserPosts(user_id: string): Promise<Post[]> {
     return await this.prismaService.post.findMany({ where: { user_id } });
   }

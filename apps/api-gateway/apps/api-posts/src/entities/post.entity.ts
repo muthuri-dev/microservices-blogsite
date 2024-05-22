@@ -1,4 +1,5 @@
 import { ObjectType, Field, Int, Directive, ID } from '@nestjs/graphql';
+import { User } from './user.entity';
 
 @ObjectType()
 @Directive('@key(fields:"id")')
@@ -32,4 +33,7 @@ export class Post {
 
   @Field()
   user_id: string;
+
+  @Field(() => User)
+  user?: User;
 }
